@@ -1,0 +1,35 @@
+---
+name: Test
+'on':
+  pull_request:
+    branches:
+    - main
+  push:
+    branches:
+    - main
+env:
+  assignment-schema-endpoint: http://b3b1bce7bbaa.ngrok.io/validation/assignment_schema
+  grader-config-schema-endpoint: http://b3b1bce7bbaa.ngrok.io/validation/grader_config_schema
+jobs:
+  test-assignment-validity:
+    name: Test assignment validity
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Validate assignment
+      uses: mpoc/nexus-validate-using-remote-schema-action@main
+      with:
+        api-endpoint: "${{ env.assignment-schema-endpoint }}"
+        yaml-file: assignment.yml
+  test-grader-configuration-validity:
+    name: Test grader configuration validity
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Validate grader config
+      uses: mpoc/nexus-validate-using-remote-schema-action@main
+      with:
+        api-endpoint: "${{ env.grader-config-schema-endpoint }}"
+        yaml-file: grader-config.yml

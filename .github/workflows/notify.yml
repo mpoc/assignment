@@ -1,0 +1,17 @@
+---
+name: Notify
+'on':
+  push:
+    branches:
+    - main
+env:
+  assignment-update-endpoint: http://b3b1bce7bbaa.ngrok.io/assignments/156/edit_from_git_json
+jobs:
+  notify-nexus-about-assignment-update:
+    name: Nexus assignment update notifier
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send update notification
+      uses: mpoc/nexus-update-notifier-action@main
+      with:
+        api-endpoint: "${{ env.assignment-update-endpoint }}"
