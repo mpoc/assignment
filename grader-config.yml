@@ -13,7 +13,7 @@
     - javac
   configuration:
     test_files:
-      repository: this
+      repository: git@github.com:automated-assessment/coursework_3_tests.git
       branch: master
-      sha: latest
+      sha: 8f5fb0f4c8bffa355a3a34ba84916cf456b6d5e8
     timeout: 1m
