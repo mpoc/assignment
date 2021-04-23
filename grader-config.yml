@@ -1,0 +1,19 @@
+- name: javac
+  weight: 20
+  condition: 40
+# depends-on is optional
+# depends-on:
+  context: Java source compilation
+  configuration:
+- name: junit
+  weight: 80
+  condition: 40
+  context: Junit tests
+  depends-on:
+    - javac
+  configuration:
+    test_files:
+      repository: git@github.com:automated-assessment/coursework_3_tests.git
+      branch: master
+      sha: 8f5fb0f4c8bffa355a3a34ba84916cf456b6d5e8
+    timeout: 1m
