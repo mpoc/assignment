@@ -1,12 +1,12 @@
 - name: javac
-  weight: 20
+  weight: 50
   condition: 40
 # depends-on is optional
 # depends-on:
   context: Java source compilation
   configuration:
 - name: junit
-  weight: 80
+  weight: 50
   condition: 40
   context: Junit tests
   depends-on:
