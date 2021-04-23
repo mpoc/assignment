@@ -15,7 +15,7 @@ allow_zip: true
 allow_git: true
 allow_ide: true
 max_attempts: 0
-latedeadline: "2021-04-02T23:59:00.000Z"
+latedeadline: "2021-05-02T23:59:00.000Z"
 feedback_only: false
 is_unique: false
 # uat_parameters is only required if is_unique is true
